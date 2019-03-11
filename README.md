@@ -1,0 +1,2 @@
+# EbookManager
+Ebook sharing application
