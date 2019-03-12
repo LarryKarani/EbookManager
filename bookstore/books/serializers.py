@@ -6,4 +6,4 @@ class BookSerializer(serializers.ModelSerializer):
     class Meta:
         """Meta class to map serializer's field with the model fileds."""
         model = Book
-        fields = ('id', 'title', 'author', 'copies', 'date_created','date_modified')
+        fields = ('id', 'title', 'author', 'copies', 'date_added','date_modified')
