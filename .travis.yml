@@ -11,12 +11,9 @@ env:
    -DJANGO=2.1.7 DB=postgresql
 
 install:
-  - pip install pipenv
-  - pipenv install
+  - 'pip install pipenv'
+  - 'pipenv install'
 
-before_script:
-  - psql -c "CREATE DATABASE books;" -U postgres
-  
 script:
   - cd bookstore
   - python manage.py test
