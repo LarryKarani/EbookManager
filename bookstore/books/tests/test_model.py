@@ -1,5 +1,5 @@
 from django.test import TestCase
-from ..models Book
+from ..models import Book
 
 # Create your tests here.
 
@@ -17,8 +17,8 @@ class BookModelTestcase(TestCase):
     
     def test_model_can_create_a_bucketlist(self):
         """Test a model can add a book  to the database"""
-        old_count = Books.objects.count()
-        self.bucketlist.save()
-        new_count = Books.objects.count()
+        old_count = Book.objects.count()
+        self.book.save()
+        new_count = Book.objects.count()
 
         self.assertNotEqual(old_count, new_count)
