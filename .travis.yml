@@ -10,7 +10,5 @@ before_script:
   - psql -c "CREATE DATABASE books;" -U postgres  
 script: 
   - 'cd bookstore/'
-  - 'coverage run --source="." manage.py test'
-  - 'coverage report'
-after_success:
-  - coveralls
+  - 'python manage.py test'
+  
