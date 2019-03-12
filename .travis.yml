@@ -1,19 +1,16 @@
 language: python
-
 python:
-
-- "3.6"
-
-services:
-  - postgresql
-
-env:
-   -DJANGO=2.1.7 DB=postgresql
-
+  - '3.6'
 install:
   - 'pip install pipenv'
   - 'pipenv install'
-
-script:
-  - cd bookstore
-  - python manage.py test
+services:
+  - postgresql
+before_script:
+  - psql -c "CREATE DATABASE books;" -U postgres  
+script: 
+  - 'cd bookstore/'
+  - 'coverage run --source="." manage.py test'
+  - 'coverage report'
+after_success:
+  - coveralls
