@@ -6,6 +6,9 @@ install:
   - 'pipenv install'
 services:
   - postgresql
+
+env:
+  -DJANGO=2.1.7 DB=posgresql
 before_script:
   - psql -c "CREATE DATABASE books;" -U postgres  
 script: 
