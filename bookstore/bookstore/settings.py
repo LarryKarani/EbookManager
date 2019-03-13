@@ -12,6 +12,13 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 from decouple import config
+import environ
+
+env = environ.Env(
+    DEBUG = (bool, False)
+)
+environ.Env.read_env()
+SECRET_KEY = config('SECRET_KEY')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -21,10 +28,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '=v!y66562on^y9@o-8=w&$=q6$5(9hk57*ojt&0qx7wh+%qdwk'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', cast=bool)
+
 
 ALLOWED_HOSTS = []
 
@@ -78,15 +84,7 @@ WSGI_APPLICATION = 'bookstore.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'books',
-        'USER': config('user'),
-        'PASSWORD': config('password'),
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-
- }
+    'default': env.db(),
 }
 
 

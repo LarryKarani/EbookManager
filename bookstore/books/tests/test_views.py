@@ -23,4 +23,38 @@ class ViewTestCase(TestCase):
     def test_api_can_add_a_book(self):
         self.assertEqual(self.response.status_code, status.HTTP_201_CREATED)
 
+    def test_api_can_get_a_book(self):
+        """Test the api can get a given book."""
+        book = Book.objects.get()
+        response = self.client.get(
+            reverse('details',
+            kwargs={'pk': book.id}), format="json")
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertContains(response, book)
+
+    def test_api_can_update_book(self):
+        """Test the api can update a given book."""
+        book_update= {
+            "title": "KingsMan Secret service",
+            'author': "Adrew Kings",
+            'copies': 2
+        }
+        book = Book.objects.get()
+        res = self.client.put(
+            reverse('details', kwargs={'pk': book.id}),
+            book_update, format='json'
+        )
+        self.assertEqual(res.status_code, status.HTTP_200_OK)
+
+    def test_api_can_delete_book(self):
+        """Test the api can delete a book."""
+        book = Book.objects.get()
+        response = self.client.delete(
+            reverse('details', kwargs={'pk': book.id}),
+            format='json',
+            follow=True)
+
+        self.assertEquals(response.status_code, status.HTTP_204_NO_CONTENT)
+
 
