@@ -1,4 +1,5 @@
 # EbookManager
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4fea0f7323a24b7487c1660cd40add8e)](https://app.codacy.com/app/larryTheGeek/EbookManager?utm_source=github.com&utm_medium=referral&utm_content=larryTheGeek/EbookManager&utm_campaign=Badge_Grade_Dashboard)
 [![Build Status](https://travis-ci.com/larryTheGeek/EbookManager.svg?branch=develop)](https://travis-ci.com/larryTheGeek/EbookManager)
 
 Ebookmanager is a platform that keeps a record of books available in a book shop.
