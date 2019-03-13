@@ -1,5 +1,5 @@
 # EbookManager
-
+[![Build Status](https://travis-ci.com/larryTheGeek/EbookManager.svg?branch=develop)](https://travis-ci.com/larryTheGeek/EbookManager)
 Ebookmanager is a platform that keeps a record of books available in a book shop.
 
 ### Framework used
