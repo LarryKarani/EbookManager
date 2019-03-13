@@ -11,3 +11,7 @@ class CreateView(generics.ListCreateAPIView):
         """ Save the post when adding a new book """
         serializer.save()
 
+class DetailsView(generics.RetrieveUpdateDestroyAPIView):
+    """This class handles the http GET, PUT and DELETE requests."""
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer

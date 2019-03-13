@@ -12,6 +12,7 @@ djangorestframework = "*"
 psycopg2-binary = "*"
 python-decouple = "*"
 coverage = "*"
+django-environ = "*"
 
 [requires]
 python_version = "3.7"
