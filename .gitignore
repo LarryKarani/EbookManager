@@ -1,3 +1,4 @@
 .vscode
 books/migrations
 bookstore/books/migrations
+bookstore/staticfiles
