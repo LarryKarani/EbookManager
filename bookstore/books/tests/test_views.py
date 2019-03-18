@@ -1,24 +1,34 @@
+
 from django.test import TestCase
 from ..models import Book
 from rest_framework.test import APIClient
 from rest_framework import status
 from django.urls import reverse
-
+from django.contrib.auth.models import User
 class ViewTestCase(TestCase):
     """Test suite for the api views."""
 
     def setUp(self):
         """Define the test client and dummy test data"""
+        user = User.objects.create(username='tester')
         self.client = APIClient()
+        self.client.force_authenticate(user=user)
+        
+
         self.valid_payload = {
             "title": "Boss baby",
             'author': "Adrew Kings",
-            'copies': 23
+            'copies': 23,
+            'created_by': user.id
         }
+
+        
+        
         self.response = self.client.post(
             reverse('create'),
             self.valid_payload,
             format="json")
+        
 
     def test_api_can_add_a_book(self):
         self.assertEqual(self.response.status_code, status.HTTP_201_CREATED)
@@ -56,5 +66,4 @@ class ViewTestCase(TestCase):
             follow=True)
 
         self.assertEquals(response.status_code, status.HTTP_204_NO_CONTENT)
-
-
+    

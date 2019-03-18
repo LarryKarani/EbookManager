@@ -5,6 +5,7 @@ from .views import DetailsView
 
 
 urlpatterns = {
+    path('auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('api/v1/books/', CreateView.as_view(), name="create"),
     path('api/v1/books/<int:pk>/', DetailsView.as_view(), name="details")
 }
