@@ -6,6 +6,7 @@ class Book(models.Model):
     """This class represents a book model"""
     title = models.CharField(max_length=255, blank=False)
     author = models.CharField(max_length=255, blank=False)
+    synopsis = models.CharField(max_length=255, blank=True)
     copies = models.IntegerField(blank=False)
     created_by = models.ForeignKey('auth.User', 
     related_name='books', on_delete=models.CASCADE, blank=True)

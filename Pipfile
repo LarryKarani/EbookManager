@@ -16,6 +16,7 @@ django-environ = "*"
 coveralls = "*"
 gunicorn = "*"
 whitenoise = "*"
+django-cors-headers = "*"
 
 [requires]
 python_version = "3.7"
