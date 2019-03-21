@@ -2,6 +2,8 @@ from rest_framework import generics
 from .serializers import BookSerializer, UserSerializer
 from .models import Book
 from rest_framework import permissions
+from rest_framework_swagger.views import get_swagger_view
+
 class CreateView(generics.ListCreateAPIView):
     """This class defines the add book behavior of the rest API"""
     queryset = Book.objects.all()
@@ -18,3 +20,8 @@ class DetailsView(generics.RetrieveUpdateDestroyAPIView):
 class CreateUserView(generics.CreateAPIView):
     """Create user view"""
     serializer_class = UserSerializer
+
+
+
+#swagger documentation view
+schema_view = get_swagger_view(title='BookManager API')
