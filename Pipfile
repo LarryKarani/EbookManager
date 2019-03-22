@@ -18,6 +18,7 @@ gunicorn = "*"
 whitenoise = "*"
 django-cors-headers = "*"
 django-rest-swagger = "*"
+djangorestframework-jwt = "*"
 
 [requires]
 python_version = "3.7"
